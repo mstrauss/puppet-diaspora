@@ -1,0 +1,8 @@
+#!/bin/bash
+envdir=/etc/sv/diaspora/env
+root=$(<$envdir/Diaspora_Root)
+echo Starting <%= name %> from $root
+cd $root
+
+exec 2>&1
+exec chpst -e $envdir -u diaspora:diaspora <%= command %>
